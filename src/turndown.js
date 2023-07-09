@@ -34,7 +34,7 @@ export default function TurndownService (options) {
     strongDelimiter: '**',
     linkStyle: 'inlined',
     linkReferenceStyle: 'full',
-    br: '  ',
+    br: '\n',
     preformattedCode: false,
     blankReplacement: function (content, node) {
       return node.isBlock ? '\n\n' : ''
@@ -140,9 +140,10 @@ TurndownService.prototype = {
    */
 
   escape: function (string) {
-    return escapes.reduce(function (accumulator, escape) {
-      return accumulator.replace(escape[0], escape[1])
-    }, string)
+    return string
+    // return escapes.reduce(function (accumulator, escape) {
+    //   return accumulator.replace(escape[0], escape[1])
+    // }, string)
   }
 }
 
