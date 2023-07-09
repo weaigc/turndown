@@ -48,7 +48,7 @@ function collapseWhitespace (options) {
 
   while (node !== element) {
     if (node.nodeType === 3 || node.nodeType === 4) { // Node.TEXT_NODE or Node.CDATA_SECTION_NODE
-      var text = node.data.replace(/[\r\n\t]+/g, ' ').replace(/\s/g, ' ')
+      var text = node.data.replace(/[\r\n]+/g, '\n').replace(/\s/g, ' ')
 
       if ((!prevText || / $/.test(prevText.data)) &&
           !keepLeadingWs && text[0] === ' ') {
